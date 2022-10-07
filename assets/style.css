@@ -1,0 +1,11 @@
+body{
+    font-family: 'Roboto', serif;
+}
+.navBar{
+    margin: 10px;
+    height: 40px;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 255, 0.603);
+    padding: 1px;
+}
