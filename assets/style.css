@@ -2,12 +2,16 @@ body{
     font-family: 'Roboto', serif;
 }
 .navBar{
-    margin: 10px;
+    margin: 10px 10px 20px 10px;
     height: 40px;
     text-align: center;
     color: white;
     background-color: midnightblue;
     padding: 1px;
+}
+.navBar h1{
+    position: relative;
+    left: 12%;
 }
 .flexContainer{
     display: flex;
@@ -15,11 +19,14 @@ body{
 .container{
     width: 30%;
 }
-#input{
-    margin-left: 5px;
-}
 #input input{
     margin-top: 3px;
+    width: 100%;
+}
+.searchBtn{
+    background-color:cornflowerblue;
+    border-radius: 5px;
+    border-style: none;
 }
 hr{
     border-style: solid;
