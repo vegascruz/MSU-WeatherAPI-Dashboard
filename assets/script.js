@@ -1,25 +1,35 @@
-var city = "Las Vegas";
-var API_Key = "b9484f46952004ac40fe78867828c4ee";
-var count = 5;
-var url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&exclude=minutely,hourly,alerts&appid=${API_Key}`;
-
-var url_two = `https://api.openweathermap.org/data/2.5/onecall?lat=36.114647&lon=-115.172813&appid=${API_Key}`;
+const API_Key = "b9484f46952004ac40fe78867828c4ee";
 
 let dayOfMonth = parseInt(moment().format("DD"));
-let finalForecastDay = dayOfMonth + 5;
 let todaysDay = moment().date(dayOfMonth).format("M/D/YYYY");
 
-var h1 = $("#current").children("h1").text(todaysDay);
+let h1 = $("#current").children("h1").text(todaysDay);
 
-
+//-----------FUNCTIONS---------------
+//this function 
 $('.day').each(function(){
     dayOfMonth++;
     $(this).text(moment().date(dayOfMonth).format("M/D/YYYY"));
+
 });
 
-let i = 0;
-function fetchData(){
+//this function will set the value of city and then run fetchData()
+$("#searchBtn").on('click', function(){
+    city = $(".inputValue").val();
+    var $newListItem = $(`<input class="button" value="${city}" type="submit">`);
+    $('#input').append($newListItem);
+    wipeData();
+    fetchData(API_Key, city);
+});
+
+//this function takes in two parameters to create the url which is then used
+//to fetch data from openweathermap
+function fetchData(API_Key, city){
+    let i = 0;
+    let url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&exclude=minutely,hourly,alerts&appid=${API_Key}`;
+
     fetch(url)
+    .then(handleErrors)
     .then(response => response.json())
     .then(data => {
     //this loop sets the temp for each forecast date including today's date
@@ -41,7 +51,28 @@ function fetchData(){
     });
 }
 
-fetchData();
+function wipeData(){
+    $(".temp").each(function(){
+        $(this).text('Temp:');
+    });
+
+    $(".wind").each(function(){
+        $(this).text('Wind:');
+    });
+
+    $(".humidity").each(function(){
+        $(this).text('Humidity:');
+    });
+}
+
+function handleErrors(response) {
+    if (!response.ok) {
+        alert("Couldn't find");
+        throw Error(response.statusText);
+    }
+    return response;
+}
+
 
 
 
