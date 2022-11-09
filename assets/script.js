@@ -1,3 +1,4 @@
+
 //this is our API key we need to use to have access to weather data. It is used later to create our fetch url
 const API_Key = "b9484f46952004ac40fe78867828c4ee";
 
@@ -6,10 +7,16 @@ let dayOfMonth = parseInt(moment().format("DD"));
 //this is just our current day in a readable format for forecast days
 let todaysDay = moment().date(dayOfMonth).format("M/D/YYYY");
 
-let currentCity = localStorage.getItem('mostRecentSearch');
-currentCity = currentCity.charAt(0).toUpperCase() + currentCity.slice(1);
+let h1 = $("#current").children("h1").text('');
 
-let h1 = $("#current").children("h1").text(currentCity + " " + todaysDay);
+if(localStorage.getItem('mostRecentSearch') === null){
+    console.log('empty');
+}else{
+    let currentCity = localStorage.getItem('mostRecentSearch');
+    currentCity = currentCity.charAt(0).toUpperCase() + currentCity.slice(1);
+    
+    h1.text(currentCity + " " + todaysDay);
+}
 
 //let icon = document.getElementById('icon');
 
@@ -48,13 +55,17 @@ $("#searchBtn").on('click', function(){
 
 //on load, reload the recentSearches container
 $(window).on( "load", function() { 
-    let currentCity = localStorage.getItem('mostRecentSearch');
-    currentCity = currentCity.charAt(0).toUpperCase() + currentCity.slice(1);
-    h1.text(currentCity + " " + todaysDay)
-    isCurrentButton = false;
-    buttonsArray = [];
-    loadRecentSearches();
-    fetchDataOnLoad(API_Key, currentCity);
+    if(localStorage.getItem('mostRecentSearch') === null){
+        console.log('empty');
+    }else{
+        let currentCity = localStorage.getItem('mostRecentSearch');
+        currentCity = currentCity.charAt(0).toUpperCase() + currentCity.slice(1);
+        h1.text(currentCity + " " + todaysDay)
+        isCurrentButton = false;
+        buttonsArray = [];
+        loadRecentSearches();
+        fetchDataOnLoad(API_Key, currentCity);
+    }
 
 });
 

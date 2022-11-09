@@ -17,7 +17,7 @@ body{
     display: flex;
 }
 .container{
-    width: 30%;
+    width: 40%;
 }
 #input input{
     margin-top: 3px;
@@ -53,7 +53,7 @@ i{
 }
 .forecast{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .weatherForecastItem{
     display: inline-block;
@@ -70,24 +70,27 @@ i{
     padding-bottom: 10px;
 }
 @media screen and (max-width: 700px) {
-    .searchHistory{
-        display: none;
-    }
-    hr{
-        display: none;
+    .flexContainer{
+        padding-left: 5px;
+        padding-right: 20%;
     }
     .container{
-        width: 40%;
-        padding: 0px;
+        width: 100%;
     }
     .sideBar{
-        width: 80%;
+        width: 100%;
     }
     .forecast{
         font-size: 14px;
     }
 }
 @media screen and (max-width: 600px){
+    .searchHistory{
+        display: none;
+    }
+    hr{
+        display: none;
+    }
     .flexContainer{
         display: inline-block;
         width: 100%;
@@ -95,6 +98,8 @@ i{
     }
     .container{
         width: 100%;
+        padding: 0px;
+        padding-bottom: 5px;
     }
     .sideBar{
         width: 100%;
