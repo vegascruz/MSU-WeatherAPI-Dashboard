@@ -2,7 +2,7 @@ body{
     font-family: 'Roboto', serif;
 }
 .navBar{
-    margin: 10px 10px 20px 10px;
+    margin: 0px 0px 20px 0px;
     height: 40px;
     text-align: center;
     color: white;
@@ -27,6 +27,13 @@ body{
     background-color:cornflowerblue;
     border-radius: 5px;
     border-style: none;
+    color: white;
+}
+#recentSearchButton{
+    background-color: rgba(161, 160, 160, 0.842);
+    margin-bottom: 7px;
+    padding: 5px;
+    color: black;
 }
 hr{
     border-style: solid;
@@ -41,6 +48,9 @@ hr{
     border-width: 2px;
     border-color: gray;
 }
+i{
+    color: orange;
+}
 .forecast{
     display: flex;
     justify-content: space-evenly;
@@ -49,4 +59,60 @@ hr{
     display: inline-block;
     background-color: midnightblue;
     color: white;
+    padding: 5x;
+    margin-right: 5px;
+    width: 150px;
 }
+.weatherForecastItem i{
+    padding-bottom: 10px;
+}
+.weatherForecastItem div{
+    padding-bottom: 10px;
+}
+@media screen and (max-width: 700px) {
+    .searchHistory{
+        display: none;
+    }
+    hr{
+        display: none;
+    }
+    .container{
+        width: 40%;
+        padding: 0px;
+    }
+    .sideBar{
+        width: 80%;
+    }
+    .forecast{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 600px){
+    .flexContainer{
+        display: inline-block;
+        width: 100%;
+        padding: 10px;
+    }
+    .container{
+        width: 100%;
+    }
+    .sideBar{
+        width: 100%;
+    }
+    .forecast{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 500px){
+    .forecast{
+        display: inline-block;
+    }
+    .weatherForecastItem{
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+}
+
