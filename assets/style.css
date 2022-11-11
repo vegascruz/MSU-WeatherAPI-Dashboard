@@ -17,10 +17,11 @@ body{
     display: flex;
 }
 .container{
-    width: 40%;
+    width: 20%;
 }
 #input input{
-    margin-top: 3px;
+    margin-top: 5px;
+    margin-bottom: 10px;
     width: 100%;
 }
 .button{
@@ -40,13 +41,14 @@ hr{
     border-width: 1.75px;
 }
 .sideBar{
-    width: 70%;
+    width: 80%;
     margin-right: 10%;
 }
 #current{
     border-style: solid;
     border-width: 2px;
     border-color: gray;
+    padding: 10px;
 }
 i{
     color: orange;
@@ -59,29 +61,33 @@ i{
     display: inline-block;
     background-color: midnightblue;
     color: white;
-    padding: 5x;
-    margin-right: 5px;
-    width: 150px;
+    width: 15%;
 }
-.weatherForecastItem i{
-    padding-bottom: 10px;
+.weatherForecastItem > *{
+    padding-bottom: 16px;
+    padding-left: 10px;
 }
-.weatherForecastItem div{
-    padding-bottom: 10px;
+@media screen and (max-width: 1200px){
+    .weatherForecastItem{
+        width: 18%;
+    }
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1100px){
+    .weatherForecastItem > *{
+        padding-bottom: 8px;
+        padding-left: 5px;
+    }
+}
+@media screen and (max-width: 900px) {
     .flexContainer{
         padding-left: 5px;
-        padding-right: 20%;
-    }
-    .container{
-        width: 100%;
-    }
-    .sideBar{
-        width: 100%;
     }
     .forecast{
         font-size: 14px;
+    }
+    .weatherForecastItem{
+        width: 20%;
+        margin-right: 1%;
     }
 }
 @media screen and (max-width: 600px){

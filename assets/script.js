@@ -121,7 +121,7 @@ function loadRecentSearches(){
 //to fetch data from openweathermap
 function fetchData(API_Key, city){
     let i = 0;
-    let url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&exclude=minutely,hourly,alerts&appid=${API_Key}`;
+    let url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&exclude=minutely,hourly,alerts&appid=${API_Key}`;
 
     fetch(url)
     .then(handleErrors) //this will run first. NOthing else will run until we determine if there are no errors
@@ -188,7 +188,7 @@ function handleErrors(response) {
 
 function fetchDataOnLoad(API_Key, city){
     let i = 0;
-    let url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&exclude=minutely,hourly,alerts&appid=${API_Key}`;
+    let url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&exclude=minutely,hourly,alerts&appid=${API_Key}`;
 
     fetch(url)
     .then(response => response.json()) //json turns it into readable data
